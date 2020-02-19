@@ -17,15 +17,26 @@ const Search = () => {
 
 		fetch(url)
 			.then(results => results.json())
-			.then(data => console.log(data))
+			// .then(data => console.log(data.items))
+			.then(data => setResults(data.items))
 			.catch(error => console.log(error));
 	};
 
 	useEffect(() => {
 		fetchSearch();
-	});
+	}, [url]);
 
-	return <p>Test</p>;
+	return (
+		<div>
+			<p>Results</p>
+			{results.map((result, index) => (
+				<a key={index} href={result.link}>
+					<h3>{result.title}</h3>
+					<p>{result.snippet}</p>
+				</a>
+			))}
+		</div>
+	);
 };
 
 export default Search;
