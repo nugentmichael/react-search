@@ -23,7 +23,12 @@ const Search = () => {
 		setSearchQuery(e.target.value);
 	};
 
-	const handleSubmit = () => {};
+	const handleSubmit = e => {
+		e.preventDefault();
+		setUrl(
+			`https://www.googleapis.com/customsearch/v1?key=AIzaSyCMSAQDPcK9X64QQnA767szm0JZ1AypDPA&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
+		);
+	};
 
 	const fetchSearch = () => {
 		// Set loading state to true
@@ -36,20 +41,33 @@ const Search = () => {
 			.catch(error => console.log(error));
 	};
 
+	const displayLoading = () => <p>Loading&ellip;</p>;
+
 	useEffect(() => {
 		fetchSearch();
 	}, [url]);
 
+	const displayResults = () =>
+		results.map((result, index) => (
+			<a key={index} href={result.link}>
+				<h3>{result.title}</h3>
+				<p>{result.snippet}</p>
+			</a>
+		));
+
 	return (
 		<div>
 			{searchForm()}
-			<p>Results</p>
-			{results.map((result, index) => (
-				<a key={index} href={result.link}>
-					<h3>{result.title}</h3>
-					<p>{result.snippet}</p>
-				</a>
-			))}
+			{searchQuery !== '' && results !== undefined ? (
+				((<p>Results</p>), displayResults())
+			) : (
+				<p>
+					Welcome. Stay hydrated!{' '}
+					<span role="img" aria-label="Sunshine">
+						☀️
+					</span>
+				</p>
+			)}
 		</div>
 	);
 };
