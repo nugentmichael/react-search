@@ -53,8 +53,11 @@ const Search = () => {
 	return (
 		<div>
 			{searchForm()}
-			{results.length > 0 ? (
-				((<p>Results</p>), displayResults())
+			{searchQuery !== '' && results.length > 0 ? (
+				<div>
+					<h2>Results</h2>
+					{displayResults()}
+				</div>
 			) : (
 				<p>
 					Welcome. Stay hydrated!
