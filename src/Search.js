@@ -4,7 +4,8 @@ const Search = () => {
 	const [results, setResults] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('news');
 	const [url, setUrl] = useState(
-		`https://www.googleapis.com/customsearch/v1?key=AIzaSyCMSAQDPcK9X64QQnA767szm0JZ1AypDPA&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
+		// `https://www.googleapis.com/customsearch/v1?key=AIzaSyCMSAQDPcK9X64QQnA767szm0JZ1AypDPA&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
+		`http://hn.algolia.com/api/v1/search?query=${searchQuery}`
 	);
 	const [loading, setLoading] = useState(false);
 
@@ -26,7 +27,8 @@ const Search = () => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		setUrl(
-			`https://www.googleapis.com/customsearch/v1?key=AIzaSyCMSAQDPcK9X64QQnA767szm0JZ1AypDPA&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
+			// `https://www.googleapis.com/customsearch/v1?key=AIzaSyCMSAQDPcK9X64QQnA767szm0JZ1AypDPA&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
+			`http://hn.algolia.com/api/v1/search?query=${searchQuery}`
 		);
 	};
 
@@ -37,7 +39,9 @@ const Search = () => {
 		fetch(url)
 			.then(results => results.json())
 			// .then(data => console.log(data.items))
-			.then(data => setResults(data.items))
+			// .then(data => setResults(data.items))
+			// .then(data => console.log(data.hits))
+			.then(data => (setResults(data.hits), console.log(data.hits)))
 			.catch(error => console.log(error));
 	};
 
@@ -49,20 +53,20 @@ const Search = () => {
 
 	const displayResults = () =>
 		results.map((result, index) => (
-			<a key={index} href={result.link}>
+			<div key={index}>
 				<h3>{result.title}</h3>
-				<p>{result.snippet}</p>
-			</a>
+				<p>{result.story_text}</p>
+			</div>
 		));
 
 	return (
 		<div>
 			{searchForm()}
-			{searchQuery !== '' && results !== undefined ? (
+			{searchQuery ? (
 				((<p>Results</p>), displayResults())
 			) : (
 				<p>
-					Welcome. Stay hydrated!{' '}
+					Welcome. Stay hydrated!
 					<span role="img" aria-label="Sunshine">
 						☀️
 					</span>
