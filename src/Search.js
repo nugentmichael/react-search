@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const Search = () => {
 	const [results, setResults] = useState([]);
-	const [searchQuery, setSearchQuery] = useState('news');
-	const [url, setUrl] = useState(
-		// `https://www.googleapis.com/customsearch/v1?key=AIzaSyCMSAQDPcK9X64QQnA767szm0JZ1AypDPA&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
-		`http://hn.algolia.com/api/v1/search?query=${searchQuery}`
-	);
-	const [loading, setLoading] = useState(false);
+	const [searchQuery, setSearchQuery] = useState('');
+	const [url, setUrl] = useState('');
 
 	const searchForm = () => (
 		<form onSubmit={handleSubmit}>
@@ -33,9 +29,6 @@ const Search = () => {
 	};
 
 	const fetchSearch = () => {
-		// Set loading state to true
-		setLoading(true);
-
 		fetch(url)
 			.then(results => results.json())
 			// .then(data => console.log(data.items))
@@ -44,8 +37,6 @@ const Search = () => {
 			.then(data => (setResults(data.hits), console.log(data.hits)))
 			.catch(error => console.log(error));
 	};
-
-	const displayLoading = () => <p>Loading&ellip;</p>;
 
 	useEffect(() => {
 		fetchSearch();
@@ -62,7 +53,7 @@ const Search = () => {
 	return (
 		<div>
 			{searchForm()}
-			{searchQuery ? (
+			{results.length > 0 ? (
 				((<p>Results</p>), displayResults())
 			) : (
 				<p>
