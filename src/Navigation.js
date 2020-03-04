@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Nav = () => {
 	const [hamburger, setHamburger] = useState('');
 	const [menu, setMenu] = useState('');
 
 	const toggleMenu = () => {
-		menu === '' ? setHamburger('is-active') : setHamburger('');
-		hamburger === '' ? setMenu('open') : setMenu('');
+		hamburger === '' ? setHamburger('is-active') : setHamburger('');
+		menu === '' ? setMenu('open') : setMenu('');
 	};
 
 	return (
