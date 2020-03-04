@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Nav = () => {
+	const [hamburger, setHamburger] = useState('');
+	const [menu, setMenu] = useState('');
+
+	const toggleMenu = () => {
+		menu === '' ? setHamburger('is-active') : setHamburger('');
+		hamburger === '' ? setMenu('open') : setMenu('');
+	};
+
 	return (
-		<nav id="sidebar">
+		<nav id="sidebar" className={menu}>
 			<div className="sidebar-header">
 				<h3>Menu</h3>
+
+				<div
+					className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
+					onClick={toggleMenu}
+				>
+					<div className="hamburger-box">
+						<div className="hamburger-inner"></div>
+					</div>
+				</div>
 			</div>
 
 			<ul className="list-unstyled components">
