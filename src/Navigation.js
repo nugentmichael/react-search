@@ -3,21 +3,21 @@ import React from 'react';
 const Nav = () => {
 	return (
 		<nav id="sidebar">
-			<div class="sidebar-header">
+			<div className="sidebar-header">
 				<h3>Menu</h3>
 			</div>
 
-			<ul class="list-unstyled components">
-				<li class="active">
+			<ul className="list-unstyled components">
+				<li className="active">
 					<a
 						href="#homeSubmenu"
 						data-toggle="collapse"
 						aria-expanded="false"
-						class="dropdown-toggle"
+						className="dropdown-toggle"
 					>
 						Home
 					</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu">
+					<ul className="collapse list-unstyled" id="homeSubmenu">
 						<li>
 							<a href="#">Home 1</a>
 						</li>
@@ -37,11 +37,11 @@ const Nav = () => {
 						href="#pageSubmenu"
 						data-toggle="collapse"
 						aria-expanded="false"
-						class="dropdown-toggle"
+						className="dropdown-toggle"
 					>
 						Pages
 					</a>
-					<ul class="collapse list-unstyled" id="pageSubmenu">
+					<ul className="collapse list-unstyled" id="pageSubmenu">
 						<li>
 							<a href="#">Page 1</a>
 						</li>

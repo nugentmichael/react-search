@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Search = () => {
 	const [results, setResults] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('');
-	const [url, setUrl] = useState('');
+	const [url, setUrl] = useState();
 
 	const searchForm = () => (
 		<form onSubmit={handleSubmit}>
@@ -34,12 +34,14 @@ const Search = () => {
 			// .then(data => console.log(data.items))
 			// .then(data => setResults(data.items))
 			// .then(data => console.log(data.hits))
-			.then(data => (setResults(data.hits), console.log(data.hits)))
+			.then(data => setResults(data.hits))
 			.catch(error => console.log(error));
 	};
 
 	useEffect(() => {
-		fetchSearch();
+		if (url) {
+			fetchSearch();
+		}
 	}, [url]);
 
 	const displayResults = () =>
