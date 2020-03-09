@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useRouteMatch,
-	useParams
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
 	const [hamburger, setHamburger] = useState('');
@@ -18,31 +11,29 @@ const Nav = () => {
 	};
 
 	return (
-		<Router>
-			<nav id="sidebar" className={menu}>
-				<div className="sidebar-header">
-					<h3>Menu</h3>
+		<nav id="sidebar" className={menu}>
+			<div className="sidebar-header">
+				<h3>Menu</h3>
 
-					<div
-						className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
-						onClick={toggleMenu}
-					>
-						<div className="hamburger-box">
-							<div className="hamburger-inner"></div>
-						</div>
+				<div
+					className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
+					onClick={toggleMenu}
+				>
+					<div className="hamburger-box">
+						<div className="hamburger-inner"></div>
 					</div>
 				</div>
+			</div>
 
-				<ul className="menu-components">
-					<li>
-						<Link to="/Search">Search</Link>
-					</li>
-					<li>
-						<Link to="/Weather">Weather</Link>
-					</li>
-				</ul>
-			</nav>
-		</Router>
+			<ul className="menu-components">
+				<li>
+					<Link to="/Search">Search</Link>
+				</li>
+				<li>
+					<Link to="/Weather">Weather</Link>
+				</li>
+			</ul>
+		</nav>
 	);
 };
 
