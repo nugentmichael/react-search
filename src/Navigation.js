@@ -18,29 +18,31 @@ const Nav = () => {
 	};
 
 	return (
-		<nav id="sidebar" className={menu}>
-			<div className="sidebar-header">
-				<h3>Menu</h3>
+		<Router>
+			<nav id="sidebar" className={menu}>
+				<div className="sidebar-header">
+					<h3>Menu</h3>
 
-				<div
-					className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
-					onClick={toggleMenu}
-				>
-					<div className="hamburger-box">
-						<div className="hamburger-inner"></div>
+					<div
+						className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
+						onClick={toggleMenu}
+					>
+						<div className="hamburger-box">
+							<div className="hamburger-inner"></div>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<ul className="menu-components">
-				<li>
-					<Link to="/Search">Search</Link>
-				</li>
-				<li>
-					<Link to="/Weather">Weather</Link>
-				</li>
-			</ul>
-		</nav>
+				<ul className="menu-components">
+					<li>
+						<Link to="/Search">Search</Link>
+					</li>
+					<li>
+						<Link to="/Weather">Weather</Link>
+					</li>
+				</ul>
+			</nav>
+		</Router>
 	);
 };
 
