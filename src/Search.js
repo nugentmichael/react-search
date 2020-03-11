@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import keys from './keys';
 
 const Search = () => {
 	const [results, setResults] = useState([]);
@@ -23,7 +24,7 @@ const Search = () => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		setUrl(
-			// `https://www.googleapis.com/customsearch/v1?key=AIzaSyCMSAQDPcK9X64QQnA767szm0JZ1AypDPA&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
+			// `https://www.googleapis.com/customsearch/v1?key=${keys.google}&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
 			`http://hn.algolia.com/api/v1/search?query=${searchQuery}`
 		);
 	};
@@ -42,6 +43,7 @@ const Search = () => {
 		if (url) {
 			fetchSearch();
 		}
+		console.log(keys.ipstack);
 	}, [url]);
 
 	const displayResults = () =>
