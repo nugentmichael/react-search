@@ -43,7 +43,6 @@ const Search = () => {
 		if (url) {
 			fetchSearch();
 		}
-		console.log(keys.ipstack);
 	}, [url]);
 
 	const displayResults = () =>
