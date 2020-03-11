@@ -27,10 +27,10 @@ const Nav = () => {
 
 			<ul className="menu-components">
 				<li>
-					<Link to="/Search">Search</Link>
+					<Link to="/search">Search</Link>
 				</li>
 				<li>
-					<Link to="/Weather">Weather</Link>
+					<Link to="/weather">Weather</Link>
 				</li>
 			</ul>
 		</nav>

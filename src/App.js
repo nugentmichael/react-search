@@ -20,11 +20,11 @@ function App() {
 				<Router>
 					<Nav />
 					<Switch>
-						<Redirect exact from="/" to="/Search" />
-						<Route path="/Search">
+						<Redirect exact from="/" to="/search" />
+						<Route path="/search">
 							<Search />
 						</Route>
-						<Route path="/Weather">
+						<Route path="/weather">
 							<Weather />
 						</Route>
 					</Switch>
