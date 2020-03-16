@@ -12,28 +12,28 @@ const Weather = () => {
 		)
 			.then(result => result.json())
 			// .then(data => console.log(data))
-			.then(data => setLatLng(data))
+			// .then(data => setLatLng(data))
+			// .then(data => fetchWeather(data))
+			.then(data => {
+				setLatLng(data);
+				fetchWeather(data);
+			})
+			.catch(error => console.log(error));
+	};
+
+	const fetchWeather = coords => {
+		fetch(
+			`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${keys.weather}`
+		)
+			.then(result => result.json())
+			// .then(data => console.log(data))
+			.then(data => setWeather(data))
 			.catch(error => console.log(error));
 	};
 
 	useEffect(() => {
-		if (latLng) {
-			fetchLatLng();
-		}
-
-		if (weather) {
-			// fetchWeather();
-		}
-	}, [latLng, weather]);
-
-	const fetchWeather = () => {
-		fetch(
-			`https://api.openweathermap.org/data/2.5/weather?lat=${latLng.latitude}&lon=${latLng.longitude}&appid=${keys.weather}`
-		)
-			.then(result => result.json())
-			.then(data => console.log(data));
-		// .then(data => setWeather(data));
-	};
+		fetchLatLng();
+	}, []);
 
 	return (
 		<div>
