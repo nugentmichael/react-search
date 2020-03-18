@@ -1,0 +1,12 @@
+// Partials
+@import 'src/scss/partials/reset';
+
+// Modules and Variables
+@import 'src/scss/partials/base';
+
+// Components
+@import 'src/scss/components/app';
+@import 'src/scss/components/header';
+@import 'src/scss/components/navigation';
+@import 'src/scss/components/search';
+@import 'src/scss/components/weather';

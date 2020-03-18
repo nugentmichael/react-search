@@ -5,7 +5,7 @@ import {
 	Route,
 	Redirect
 } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import Nav from './Navigation';
 import Header from './Header';
 import Search from './Search';
