@@ -30,6 +30,9 @@ const Nav = () => {
 					<Link to="/search">Search</Link>
 				</li>
 				<li>
+					<Link to="/news">News</Link>
+				</li>
+				<li>
 					<Link to="/weather">Weather</Link>
 				</li>
 			</ul>
