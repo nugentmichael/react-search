@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import keys from './keys';
 
 const Search = () => {
 	const [results, setResults] = useState([]);
@@ -23,15 +22,17 @@ const Search = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		setUrl(
-			`https://www.googleapis.com/customsearch/v1?key=${keys.google}&cx=partner-pub-7786488079830346:vnol26-ct61&q=${searchQuery}`
-		);
+		setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
 	};
 
 	const fetchSearch = () => {
 		fetch(url)
 			.then(results => results.json())
-			.then(data => setResults(data.items))
+			// .then(data => setResults(data.hits))
+			.then(data => {
+				console.log(data.hits);
+				setResults(data.hits);
+			})
 			.catch(error => console.log(error));
 	};
 
@@ -44,16 +45,16 @@ const Search = () => {
 	const displayResults = () =>
 		results.map((result, index) => (
 			<div key={index}>
-				<a href={result.formattedUrl}>
+				<a href={result.url}>
 					<h3>{result.title}</h3>
 				</a>
-				<p>{result.snippet}</p>
+				<p>{result.story_text}</p>
 			</div>
 		));
 
 	return (
 		<div>
-			<h2>Search</h2>
+			<h2>News Search</h2>
 			{searchForm()}
 			{searchQuery !== '' && results.length > 0 ? (
 				<div>
