@@ -11,7 +11,7 @@ const Nav = () => {
 	};
 
 	return (
-		<nav id="sidebar" className={menu}>
+		<div>
 			<div className="sidebar-header">
 				<h3>Menu</h3>
 
@@ -25,18 +25,20 @@ const Nav = () => {
 				</div>
 			</div>
 
-			<ul className="menu-components">
-				<li>
-					<Link to="/search">Search</Link>
-				</li>
-				<li>
-					<Link to="/news">News</Link>
-				</li>
-				<li>
-					<Link to="/weather">Weather</Link>
-				</li>
-			</ul>
-		</nav>
+			<nav id="sidebar" className={menu}>
+				<ul className="menu-components">
+					<li>
+						<Link to="/search">Search</Link>
+					</li>
+					<li>
+						<Link to="/news">News</Link>
+					</li>
+					<li>
+						<Link to="/weather">Weather</Link>
+					</li>
+				</ul>
+			</nav>
+		</div>
 	);
 };
 
