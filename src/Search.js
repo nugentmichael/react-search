@@ -24,18 +24,14 @@ const Search = () => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		setUrl(
-			// `https://www.googleapis.com/customsearch/v1?key=${keys.google}&cx=017576662512468239146:omuauf_lfve&q=${searchQuery}`
-			`http://hn.algolia.com/api/v1/search?query=${searchQuery}`
+			`https://www.googleapis.com/customsearch/v1?key=${keys.google}&cx=partner-pub-7786488079830346:vnol26-ct61&q=${searchQuery}`
 		);
 	};
 
 	const fetchSearch = () => {
 		fetch(url)
 			.then(results => results.json())
-			// .then(data => console.log(data.items))
-			// .then(data => setResults(data.items))
-			// .then(data => console.log(data.hits))
-			.then(data => setResults(data.hits))
+			.then(data => setResults(data.items))
 			.catch(error => console.log(error));
 	};
 
@@ -48,8 +44,10 @@ const Search = () => {
 	const displayResults = () =>
 		results.map((result, index) => (
 			<div key={index}>
-				<h3>{result.title}</h3>
-				<p>{result.story_text}</p>
+				<a href={result.formattedUrl}>
+					<h3>{result.title}</h3>
+				</a>
+				<p>{result.snippet}</p>
 			</div>
 		));
 
