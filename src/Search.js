@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TextField, { HelperText, Input } from '@material/react-text-field';
 import keys from './keys';
 
 const Search = () => {
@@ -8,11 +9,16 @@ const Search = () => {
 
 	const searchForm = () => (
 		<form onSubmit={handleSubmit}>
-			<input
-				type="text"
-				value={searchQuery}
-				onChange={handleChange}
-			></input>
+			<TextField
+				label="Dog"
+				helperText={<HelperText>Help Me!</HelperText>}
+			>
+				<Input
+					type="text"
+					value={searchQuery}
+					onChange={handleChange}
+				/>
+			</TextField>
 			<button>Search</button>
 		</form>
 	);
