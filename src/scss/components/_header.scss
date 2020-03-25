@@ -1,3 +1,30 @@
 .App-header {
-	font-size: calc(10px + 2vmin);
+	h1 {
+		font-size: 4rem;
+
+		span {
+			&:first-child,
+			&:nth-child(4) {
+				color: #4284f6;
+			}
+
+			&:nth-child(2),
+			&:nth-child(6) {
+				color: #ea4435;
+			}
+
+			&:nth-child(3) {
+				color: #fcbc03;
+			}
+
+			&:nth-child(5) {
+				color: #33a852;
+			}
+		}
+	}
+
+	h2 {
+		margin: 1.5rem 0;
+		font-size: 1.5rem;
+	}
 }

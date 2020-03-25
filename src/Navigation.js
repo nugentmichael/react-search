@@ -12,29 +12,27 @@ const Nav = () => {
 
 	return (
 		<div>
-			<div className="sidebar-header">
-				<h3>Menu</h3>
-
-				<div
-					className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
-					onClick={toggleMenu}
-				>
-					<div className="hamburger-box">
-						<div className="hamburger-inner"></div>
-					</div>
+			<div
+				className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
+				onClick={toggleMenu}
+			>
+				<div className="hamburger-box">
+					<div className="hamburger-inner"></div>
 				</div>
 			</div>
 
 			<nav id="sidebar" className={menu}>
+				<h3>Menu</h3>
+
 				<ul className="menu-components">
 					<li>
-						<Link to="/search">Search</Link>
+						<Link to="/search">🔍 Search</Link>
 					</li>
 					<li>
-						<Link to="/news">News</Link>
+						<Link to="/news">📰 News</Link>
 					</li>
 					<li>
-						<Link to="/weather">Weather</Link>
+						<Link to="/weather">☀️ Weather</Link>
 					</li>
 				</ul>
 			</nav>
