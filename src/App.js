@@ -16,10 +16,10 @@ function App() {
 	return (
 		<div>
 			<div className="App">
+				<Nav />
 				<Header />
 
 				<Router>
-					<Nav />
 					<Switch>
 						<Redirect exact from="/" to="/search" />
 						<Route path="/search">
