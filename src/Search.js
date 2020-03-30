@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import TextField, { HelperText, Input } from '@material/react-text-field';
+import TextField, { Input } from '@material/react-text-field';
+import MaterialIcon from '@material/react-material-icon';
+import Button from '@material/react-button';
 import keys from './keys';
 
 const Search = () => {
@@ -10,8 +12,9 @@ const Search = () => {
 	const searchForm = () => (
 		<form onSubmit={handleSubmit}>
 			<TextField
-				label="Dog"
-				helperText={<HelperText>Help Me!</HelperText>}
+				outlined="true"
+				label="Enter search query..."
+				trailingIcon={<MaterialIcon role="button" icon="search" />}
 			>
 				<Input
 					type="text"
@@ -19,7 +22,7 @@ const Search = () => {
 					onChange={handleChange}
 				/>
 			</TextField>
-			<button>Search</button>
+			<Button raised>Search</Button>
 		</form>
 	);
 
