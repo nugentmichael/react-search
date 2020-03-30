@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
 	// const [hamburger, setHamburger] = useState('');
 	// const [menu, setMenu] = useState('');
+	const [menu, setMenu] = useState(false);
 
 	// const toggleMenu = () => {
 	// 	hamburger === '' ? setHamburger('is-active') : setHamburger('');
