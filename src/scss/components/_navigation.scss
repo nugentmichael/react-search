@@ -1,5 +1,18 @@
 @import '@material/react-top-app-bar/index.scss';
 @import '@material/react-material-icon/index.scss';
+@import '@material/react-drawer/index.scss';
+
+.drawer-container {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.drawer-app-content {
+	flex: auto;
+	overflow: auto;
+}
 
 .hamburger {
 	position: absolute;
