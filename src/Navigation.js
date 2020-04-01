@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TopAppBar, {
 	TopAppBarIcon,
 	TopAppBarRow,
@@ -22,12 +22,25 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
 	// const [hamburger, setHamburger] = useState('');
 	// const [menu, setMenu] = useState('');
-	const [menu, setMenu] = useState(false);
+	const [open, setOpen] = useState(false);
+	const initialLoad = useRef(true);
 
 	// const toggleMenu = () => {
 	// 	hamburger === '' ? setHamburger('is-active') : setHamburger('');
 	// 	menu === '' ? setMenu('open') : setMenu('');
 	// };
+
+	const toggleMenu = () => {
+		open === false ? setOpen(true) : setOpen(false);
+	};
+
+	useEffect(() => {
+		if (initialLoad.current) {
+			initialLoad.current = false;
+			return;
+		}
+		toggleMenu();
+	}, []);
 
 	// this.state = { selectedIndex: 0 };
 
@@ -59,7 +72,7 @@ const Nav = () => {
 		// 	</nav>
 		// </div>
 		<div className="drawer-container">
-			<Drawer>
+			<Drawer modal open={open} onClose={() => setOpen(false)}>
 				<DrawerHeader>
 					<DrawerTitle tag="h2">jane.smith@gmail.com</DrawerTitle>
 				</DrawerHeader>
@@ -87,7 +100,7 @@ const Nav = () => {
 								<MaterialIcon
 									hasRipple
 									icon="menu"
-									onClick={() => console.log('click')}
+									onClick={() => toggleMenu()}
 								/>
 							</TopAppBarIcon>
 							<TopAppBarTitle>Roogle</TopAppBarTitle>
