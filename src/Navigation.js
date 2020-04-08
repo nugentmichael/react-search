@@ -47,7 +47,7 @@ const Nav = () => {
 						<ListItem onClick={() => toggleMenu()}>
 							<Link to="/search">
 								<ListItemGraphic
-									graphic={<MaterialIcon icon="folder" />}
+									graphic={<MaterialIcon icon="search" />}
 								/>
 								<ListItemText primaryText="Search" />
 							</Link>
@@ -55,7 +55,7 @@ const Nav = () => {
 						<ListItem onClick={() => toggleMenu()}>
 							<Link to="/news">
 								<ListItemGraphic
-									graphic={<MaterialIcon icon="folder" />}
+									graphic={<MaterialIcon icon="language" />}
 								/>
 								<ListItemText primaryText="News" />
 							</Link>
@@ -63,7 +63,7 @@ const Nav = () => {
 						<ListItem onClick={() => toggleMenu()}>
 							<Link to="/weather">
 								<ListItemGraphic
-									graphic={<MaterialIcon icon="folder" />}
+									graphic={<MaterialIcon icon="wb_sunny" />}
 								/>
 								<ListItemText primaryText="Weather" />
 							</Link>
@@ -83,7 +83,9 @@ const Nav = () => {
 									onClick={() => toggleMenu()}
 								/>
 							</TopAppBarIcon>
-							<TopAppBarTitle>Roogle</TopAppBarTitle>
+							<Link to="/news">
+								<TopAppBarTitle>Roogle</TopAppBarTitle>
+							</Link>
 						</TopAppBarSection>
 						<TopAppBarSection align="end" role="toolbar">
 							<TopAppBarIcon actionItem tabIndex={0}>
