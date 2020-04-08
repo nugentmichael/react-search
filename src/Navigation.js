@@ -3,32 +3,25 @@ import TopAppBar, {
 	TopAppBarIcon,
 	TopAppBarRow,
 	TopAppBarSection,
-	TopAppBarTitle
+	TopAppBarTitle,
 } from '@material/react-top-app-bar';
 import Drawer, {
 	DrawerAppContent,
 	DrawerContent,
 	DrawerHeader,
-	DrawerTitle
+	DrawerTitle,
 } from '@material/react-drawer';
 import List, {
 	ListItem,
 	ListItemGraphic,
-	ListItemText
+	ListItemText,
 } from '@material/react-list';
 import MaterialIcon from '@material/react-material-icon';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
-	// const [hamburger, setHamburger] = useState('');
-	// const [menu, setMenu] = useState('');
 	const [open, setOpen] = useState(false);
 	const initialLoad = useRef(true);
-
-	// const toggleMenu = () => {
-	// 	hamburger === '' ? setHamburger('is-active') : setHamburger('');
-	// 	menu === '' ? setMenu('open') : setMenu('');
-	// };
 
 	const toggleMenu = () => {
 		open === false ? setOpen(true) : setOpen(false);
@@ -42,51 +35,38 @@ const Nav = () => {
 		toggleMenu();
 	}, []);
 
-	// this.state = { selectedIndex: 0 };
-
 	return (
-		// <div>
-		// 	<div
-		// 		className={`hamburger hamburger--arrow js-hamburger ${hamburger}`}
-		// 		onClick={toggleMenu}
-		// 	>
-		// 		<div className="hamburger-box">
-		// 			<div className="hamburger-inner"></div>
-		// 		</div>
-		// 	</div>
-
-		// 	<nav id="sidebar" className={menu}>
-		// 		<h3>Menu</h3>
-
-		// 		<ul className="menu-components">
-		// 			<li>
-		// 				<Link to="/search">🔍 Search</Link>
-		// 			</li>
-		// 			<li>
-		// 				<Link to="/news">📰 News</Link>
-		// 			</li>
-		// 			<li>
-		// 				<Link to="/weather">☀️ Weather</Link>
-		// 			</li>
-		// 		</ul>
-		// 	</nav>
-		// </div>
 		<div className="drawer-container">
 			<Drawer modal open={open} onClose={() => setOpen(false)}>
 				<DrawerHeader>
-					<DrawerTitle tag="h2">jane.smith@gmail.com</DrawerTitle>
+					<DrawerTitle tag="h2">Menu</DrawerTitle>
 				</DrawerHeader>
 
 				<DrawerContent>
-					<List
-						singleSelection
-						// selectedIndex={this.state.selectedIndex}
-					>
-						<ListItem>
-							<ListItemGraphic
-								graphic={<MaterialIcon icon="folder" />}
-							/>
-							<ListItemText primaryText="Mail" />
+					<List>
+						<ListItem onClick={() => toggleMenu()}>
+							<Link to="/search">
+								<ListItemGraphic
+									graphic={<MaterialIcon icon="folder" />}
+								/>
+								<ListItemText primaryText="Search" />
+							</Link>
+						</ListItem>
+						<ListItem onClick={() => toggleMenu()}>
+							<Link to="/news">
+								<ListItemGraphic
+									graphic={<MaterialIcon icon="folder" />}
+								/>
+								<ListItemText primaryText="News" />
+							</Link>
+						</ListItem>
+						<ListItem onClick={() => toggleMenu()}>
+							<Link to="/weather">
+								<ListItemGraphic
+									graphic={<MaterialIcon icon="folder" />}
+								/>
+								<ListItemText primaryText="Weather" />
+							</Link>
 						</ListItem>
 					</List>
 				</DrawerContent>
