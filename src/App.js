@@ -3,7 +3,7 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	Redirect
+	Redirect,
 } from 'react-router-dom';
 import './App.scss';
 import Nav from './Navigation';
@@ -16,10 +16,10 @@ function App() {
 	return (
 		<div>
 			<div className="App">
-				<Nav />
 				<Header />
 
 				<Router>
+					<Nav />
 					<Switch>
 						<Redirect exact from="/" to="/search" />
 						<Route path="/search">
