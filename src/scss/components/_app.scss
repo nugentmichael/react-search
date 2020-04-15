@@ -1,19 +1,19 @@
-.App {
-	// position: relative;
+#root > div {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 0.1fr;
+	gap: 1px 1px;
+	grid-template-areas: 'app' 'footer';
+	justify-items: center;
+	align-items: center;
+	min-height: 100vh;
 	background-color: #fcfcfc;
-	// min-height: 100vh;
-	// display: flex;
-	// flex-direction: column;
-	// align-items: center;
-	// justify-content: center;
-	// text-align: center;
 }
 
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+.App {
+	grid-area: app;
+}
+
+.footer {
+	grid-area: footer;
 }
