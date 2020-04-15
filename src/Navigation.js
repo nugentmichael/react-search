@@ -35,11 +35,23 @@ const Nav = () => {
 		toggleMenu();
 	}, []);
 
+	const MenuHeader = {
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	};
+
 	return (
 		<div className="drawer-container">
 			<Drawer modal open={open} onClose={() => setOpen(false)}>
-				<DrawerHeader>
+				<DrawerHeader style={MenuHeader}>
 					<DrawerTitle tag="h2">Menu</DrawerTitle>
+					<MaterialIcon
+						hasRipple
+						icon="close"
+						aria-label="Close Menu"
+						onClick={() => toggleMenu()}
+					/>
 				</DrawerHeader>
 
 				<DrawerContent>
@@ -83,7 +95,7 @@ const Nav = () => {
 									onClick={() => toggleMenu()}
 								/>
 							</TopAppBarIcon>
-							<Link to="/news">
+							<Link to="/search">
 								<TopAppBarTitle>Roogle</TopAppBarTitle>
 							</Link>
 						</TopAppBarSection>

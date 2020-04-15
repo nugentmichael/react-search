@@ -6,4 +6,27 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+
+	.mdc-drawer__content {
+		padding-top: 30px;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.mdc-list-item a {
+		display: flex;
+		align-items: center;
+
+		span {
+			margin-left: 10px;
+		}
+	}
+
+	.drawer-app-content {
+		.mdc-top-app-bar__section a {
+			color: #fff;
+		}
+	}
 }
