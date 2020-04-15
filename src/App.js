@@ -11,6 +11,7 @@ import Header from './Header';
 import Search from './Search';
 import News from './News';
 import Weather from './Weather';
+import Footer from './Footer';
 
 function App() {
 	return (
@@ -33,7 +34,7 @@ function App() {
 					</Switch>
 				</Router>
 			</div>
-			<div className="footer">&copy; 2020</div>
+			<Footer />
 		</div>
 	);
 }
