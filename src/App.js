@@ -16,10 +16,9 @@ function App() {
 	return (
 		<div>
 			<div className="App">
-				<Header />
-
 				<Router>
 					<Nav />
+					<Header />
 					<Switch>
 						<Redirect exact from="/" to="/search" />
 						<Route path="/search">
@@ -34,6 +33,7 @@ function App() {
 					</Switch>
 				</Router>
 			</div>
+			<div className="footer">&copy; 2020</div>
 		</div>
 	);
 }
