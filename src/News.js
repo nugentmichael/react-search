@@ -16,24 +16,24 @@ const Search = () => {
 		</form>
 	);
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setSearchQuery(e.target.value);
 	};
 
-	const handleSubmit = e => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
 	};
 
 	const fetchSearch = () => {
 		fetch(url)
-			.then(results => results.json())
+			.then((results) => results.json())
 			// .then(data => setResults(data.hits))
-			.then(data => {
+			.then((data) => {
 				console.log(data.hits);
 				setResults(data.hits);
 			})
-			.catch(error => console.log(error));
+			.catch((error) => console.log(error));
 	};
 
 	useEffect(() => {
@@ -56,7 +56,7 @@ const Search = () => {
 		<div>
 			<h2>News Search</h2>
 			{searchForm()}
-			{searchQuery !== '' && results.length > 0 ? (
+			{results && results.length > 0 ? (
 				<div>
 					<h3>Results</h3>
 					{displayResults()}

@@ -10,13 +10,14 @@ const Search = () => {
 	const [url, setUrl] = useState();
 
 	const searchForm = () => (
-		<form onSubmit={handleSubmit}>
+		<form className="search-form" onSubmit={handleSubmit}>
 			<TextField
 				outlined="true"
 				label="Enter search query..."
 				trailingIcon={<MaterialIcon role="button" icon="search" />}
 			>
 				<Input
+					id="search-field"
 					type="text"
 					value={searchQuery}
 					onChange={handleChange}
@@ -26,11 +27,11 @@ const Search = () => {
 		</form>
 	);
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setSearchQuery(e.target.value);
 	};
 
-	const handleSubmit = e => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		setUrl(
 			`https://www.googleapis.com/customsearch/v1?key=${keys.google}&cx=partner-pub-7786488079830346:vnol26-ct61&q=${searchQuery}`
@@ -39,9 +40,9 @@ const Search = () => {
 
 	const fetchSearch = () => {
 		fetch(url)
-			.then(results => results.json())
-			.then(data => setResults(data.items))
-			.catch(error => console.log(error));
+			.then((results) => results.json())
+			.then((data) => setResults(data.items))
+			.catch((error) => console.log(error));
 	};
 
 	useEffect(() => {
@@ -64,7 +65,7 @@ const Search = () => {
 		<div>
 			<h2>Search</h2>
 			{searchForm()}
-			{searchQuery !== '' && results.length > 0 ? (
+			{results && results.length > 0 ? (
 				<div>
 					<h3>Results</h3>
 					{displayResults()}
