@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import TextField, { Input } from '@material/react-text-field';
+import MaterialIcon from '@material/react-material-icon';
+import Button from '@material/react-button';
 
 const Search = () => {
 	const [results, setResults] = useState([]);
@@ -6,13 +9,20 @@ const Search = () => {
 	const [url, setUrl] = useState();
 
 	const searchForm = () => (
-		<form onSubmit={handleSubmit}>
-			<input
-				type="text"
-				value={searchQuery}
-				onChange={handleChange}
-			></input>
-			<button>Search</button>
+		<form className="search-form" onSubmit={handleSubmit}>
+			<TextField
+				outlined="true"
+				label="Enter search query..."
+				trailingIcon={<MaterialIcon role="button" icon="search" />}
+			>
+				<Input
+					id="search-field"
+					type="text"
+					value={searchQuery}
+					onChange={handleChange}
+				/>
+			</TextField>
+			<Button raised>Search</Button>
 		</form>
 	);
 
@@ -28,11 +38,7 @@ const Search = () => {
 	const fetchSearch = () => {
 		fetch(url)
 			.then((results) => results.json())
-			// .then(data => setResults(data.hits))
-			.then((data) => {
-				console.log(data.hits);
-				setResults(data.hits);
-			})
+			.then((data) => setResults(data.hits))
 			.catch((error) => console.log(error));
 	};
 
@@ -44,12 +50,12 @@ const Search = () => {
 
 	const displayResults = () =>
 		results.map((result, index) => (
-			<div key={index}>
+			<li key={index}>
 				<a href={result.url}>
 					<h3>{result.title}</h3>
 				</a>
 				<p>{result.story_text}</p>
-			</div>
+			</li>
 		));
 
 	return (
@@ -57,17 +63,12 @@ const Search = () => {
 			<h2>News Search</h2>
 			{searchForm()}
 			{results && results.length > 0 ? (
-				<div>
+				<div className="search-results">
 					<h3>Results</h3>
-					{displayResults()}
+					<ul>{displayResults()}</ul>
 				</div>
 			) : (
-				<p>
-					Welcome. Stay hydrated!
-					<span role="img" aria-label="Sunshine">
-						☀️
-					</span>
-				</p>
+				<p>Let's see what's in the news today...</p>
 			)}
 		</div>
 	);
