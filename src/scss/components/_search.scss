@@ -4,3 +4,30 @@
 h2 {
 	font-size: 1.5rem;
 }
+
+.search-form {
+	.mdc-text-field {
+		margin: 20px auto;
+		width: 100%;
+	}
+
+	button {
+		display: block;
+		margin: 10px auto 50px;
+	}
+}
+
+.search-results {
+	ul li {
+		margin: 30px 0;
+
+		.result-link {
+			margin-bottom: 5px;
+			color: grey;
+		}
+
+		.result-snippet {
+			margin: 5px 0;
+		}
+	}
+}

@@ -53,12 +53,13 @@ const Search = () => {
 
 	const displayResults = () =>
 		results.map((result, index) => (
-			<div key={index}>
+			<li key={index}>
+				<p className="result-link">{result.displayLink}</p>
 				<a href={result.formattedUrl}>
 					<h3>{result.title}</h3>
 				</a>
-				<p>{result.snippet}</p>
-			</div>
+				<p className="result-snippet">{result.snippet}</p>
+			</li>
 		));
 
 	return (
@@ -66,9 +67,9 @@ const Search = () => {
 			<h2>Search</h2>
 			{searchForm()}
 			{results && results.length > 0 ? (
-				<div>
+				<div className="search-results">
 					<h3>Results</h3>
-					{displayResults()}
+					<ul>{displayResults()}</ul>
 				</div>
 			) : (
 				<p>
