@@ -10,25 +10,25 @@ const Weather = () => {
 		fetch(
 			`http://api.ipstack.com/108.162.130.190?access_key=${keys.ipstack}&format=1`
 		)
-			.then(result => result.json())
+			.then((result) => result.json())
 			// .then(data => console.log(data))
 			// .then(data => setLatLng(data))
 			// .then(data => fetchWeather(data))
-			.then(data => {
+			.then((data) => {
 				setLatLng(data);
 				fetchWeather(data);
 			})
-			.catch(error => console.log(error));
+			.catch((error) => console.log(error));
 	};
 
-	const fetchWeather = coords => {
+	const fetchWeather = (coords) => {
 		fetch(
 			`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${keys.weather}`
 		)
-			.then(result => result.json())
-			// .then(data => console.log(data))
-			.then(data => setWeather(data))
-			.catch(error => console.log(error));
+			.then((result) => result.json())
+			// .then((data) => console.log(data))
+			.then((data) => (setWeather(data), console.log(data)))
+			.catch((error) => console.log(error));
 	};
 
 	useEffect(() => {
@@ -39,8 +39,22 @@ const Weather = () => {
 		<div>
 			<h2>Weather</h2>
 			<div>
-				<h3>{latLng.latitude}</h3>
-				<p>{latLng.longitude}</p>
+				<h3>{weather.name}</h3>
+				{/* {Object.entries(weather).map((val, key) => (
+					<p key={key}>{key}</p>
+				))} */}
+				{/* <p>{weather.main.temp}</p> */}
+				{/* <p>{weather.main.feels_like}</p> */}
+				{/* <p>{weather.main.humidity}</p>
+				<p>{weather.main.pressure}</p>
+				<p>{weather.main.temp}</p>
+				<p>{weather.main.temp_max}</p>
+				<p>{weather.main.temp_min}</p>
+				<p>{weather.weather[0].description}</p>
+				<p>{weather.weather[0].icon}</p>
+				<p>{weather.weather[0].main}</p>
+				<p>{weather.wind.deg}</p>
+				<p>{weather.wind.speed}</p> */}
 			</div>
 		</div>
 	);
