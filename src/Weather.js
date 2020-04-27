@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import keys from './keys';
 
 const Weather = () => {
 	const [ip, setIP] = useState('https://www.cloudflare.com/cdn-cgi/trace');
 	const [latLng, setLatLng] = useState([]);
-	const [weather, setWeather] = useState([]);
+	const [weather, setWeather] = useState({
+		name: '',
+		main: '',
+		icon: '',
+		temp: '',
+		temp_min: '',
+		temp_max: '',
+		feels_like: '',
+		humidity: '',
+		pressure: '',
+		wind_deg: '',
+		wind_speed: '',
+	});
 
 	const fetchLatLng = () => {
 		fetch(
@@ -27,7 +39,21 @@ const Weather = () => {
 		)
 			.then((result) => result.json())
 			// .then((data) => console.log(data))
-			.then((data) => (setWeather(data), console.log(data)))
+			.then((data) =>
+				setWeather({
+					name: data.name,
+					main: data.weather[0].main,
+					icon: data.weather[0].icon,
+					temp: data.main.temp,
+					temp_min: data.main.temp_min,
+					temp_max: data.main.temp_max,
+					feels_like: data.main.feels_like,
+					humidity: data.main.humidity,
+					pressure: data.main.pressure,
+					wind_deg: data.wind.deg,
+					wind_speed: data.wind.speed,
+				})
+			)
 			.catch((error) => console.log(error));
 	};
 
@@ -39,22 +65,19 @@ const Weather = () => {
 		<div>
 			<h2>Weather</h2>
 			<div>
-				<h3>{weather.name}</h3>
-				{/* {Object.entries(weather).map((val, key) => (
-					<p key={key}>{key}</p>
-				))} */}
-				{/* <p>{weather.main.temp}</p> */}
-				{/* <p>{weather.main.feels_like}</p> */}
-				{/* <p>{weather.main.humidity}</p>
-				<p>{weather.main.pressure}</p>
-				<p>{weather.main.temp}</p>
-				<p>{weather.main.temp_max}</p>
-				<p>{weather.main.temp_min}</p>
-				<p>{weather.weather[0].description}</p>
-				<p>{weather.weather[0].icon}</p>
-				<p>{weather.weather[0].main}</p>
-				<p>{weather.wind.deg}</p>
-				<p>{weather.wind.speed}</p> */}
+				<h3>
+					<strong>{weather.name}</strong>
+				</h3>
+				<p>{weather.main}</p>
+				<p>{weather.icon}</p>
+				<p>Tempearture: {weather.temp} &deg;C</p>
+				<p>Tempearture (Min): {weather.temp_min} &deg;C</p>
+				<p>Tempearture (Max): {weather.temp_max} &deg;C</p>
+				<p>Tempearture (Feels Like): {weather.feels_like} &deg;C</p>
+				<p>Humidity: {weather.humidity}</p>
+				<p>Pressure: {weather.pressure}</p>
+				<p>Wind Temperature: {weather.wind_deg} &deg;C</p>
+				<p>Wind Speed: {weather.wind_speed} km/h</p>
 			</div>
 		</div>
 	);
