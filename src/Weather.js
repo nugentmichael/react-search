@@ -92,21 +92,29 @@ const Weather = () => {
 				{
 					// Temperature
 					weather.temp ? (
-						<p>Tempearture: {weather.temp}&deg;C</p>
+						<p>
+							<strong>Tempearture:</strong> {weather.temp}&deg;C
+						</p>
 					) : null
 				}
 
 				{
 					// Minimum Temperature
 					weather.temp_min ? (
-						<p>Tempearture (Min): {weather.temp_min}&deg;C</p>
+						<p>
+							<strong>Tempearture (Min):</strong>{' '}
+							{weather.temp_min}&deg;C
+						</p>
 					) : null
 				}
 
 				{
 					// Maximum Temperature
 					weather.temp_max ? (
-						<p>Tempearture (Max): {weather.temp_max}&deg;C</p>
+						<p>
+							<strong>Tempearture (Max):</strong>{' '}
+							{weather.temp_max}&deg;C
+						</p>
 					) : null
 				}
 
@@ -114,7 +122,8 @@ const Weather = () => {
 					// Feels Like
 					weather.feels_like ? (
 						<p>
-							Tempearture (Feels Like): {weather.feels_like}&deg;C
+							<strong>Tempearture (Feels Like):</strong>{' '}
+							{weather.feels_like}&deg;C
 						</p>
 					) : null
 				}
@@ -122,28 +131,39 @@ const Weather = () => {
 				{
 					// Humidity
 					weather.humidity ? (
-						<p>Humidity: {weather.humidity}&#37;</p>
+						<p>
+							<strong>Humidity:</strong> {weather.humidity}&#37;
+						</p>
 					) : null
 				}
 
 				{
-					// Air Pressure
+					// Atmospheric Pressure
 					weather.pressure ? (
-						<p>Atmospheric Pressure: {weather.pressure} hPa</p>
+						<p>
+							<strong>Atmospheric Pressure:</strong>{' '}
+							{weather.pressure} hPa
+						</p>
 					) : null
 				}
 
 				{
 					// Wind Direction
 					weather.wind_deg ? (
-						<p>Wind Direction: {weather.wind_deg}&deg;</p>
+						<p>
+							<strong>Wind Direction:</strong> {weather.wind_deg}
+							&deg;
+						</p>
 					) : null
 				}
 
 				{
 					// Wind Speed
 					weather.wind_speed ? (
-						<p>Wind Speed: {weather.wind_speed} km/h</p>
+						<p>
+							<strong>Wind Speed:</strong> {weather.wind_speed}
+							km/h
+						</p>
 					) : null
 				}
 			</div>
