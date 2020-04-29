@@ -35,7 +35,7 @@ const Weather = () => {
 
 	const fetchWeather = (coords) => {
 		fetch(
-			`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${keys.weather}`
+			`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=metric&appid=${keys.weather}`
 		)
 			.then((result) => result.json())
 			// .then((data) => console.log(data))
@@ -92,21 +92,21 @@ const Weather = () => {
 				{
 					// Temperature
 					weather.temp ? (
-						<p>Tempearture: {weather.temp} &deg;C</p>
+						<p>Tempearture: {weather.temp}&deg;C</p>
 					) : null
 				}
 
 				{
 					// Minimum Temperature
 					weather.temp_min ? (
-						<p>Tempearture (Min): {weather.temp_min} &deg;C</p>
+						<p>Tempearture (Min): {weather.temp_min}&deg;C</p>
 					) : null
 				}
 
 				{
 					// Maximum Temperature
 					weather.temp_max ? (
-						<p>Tempearture (Max): {weather.temp_max} &deg;C</p>
+						<p>Tempearture (Max): {weather.temp_max}&deg;C</p>
 					) : null
 				}
 
@@ -114,8 +114,7 @@ const Weather = () => {
 					// Feels Like
 					weather.feels_like ? (
 						<p>
-							Tempearture (Feels Like): {weather.feels_like}{' '}
-							&deg;C
+							Tempearture (Feels Like): {weather.feels_like}&deg;C
 						</p>
 					) : null
 				}
@@ -123,21 +122,21 @@ const Weather = () => {
 				{
 					// Humidity
 					weather.humidity ? (
-						<p>Humidity: {weather.humidity}</p>
+						<p>Humidity: {weather.humidity}&#37;</p>
 					) : null
 				}
 
 				{
 					// Air Pressure
 					weather.pressure ? (
-						<p>Pressure: {weather.pressure}</p>
+						<p>Atmospheric Pressure: {weather.pressure} hPa</p>
 					) : null
 				}
 
 				{
 					// Wind Direction
 					weather.wind_deg ? (
-						<p>Wind Direction: {weather.wind_deg} &deg;C</p>
+						<p>Wind Direction: {weather.wind_deg}&deg;</p>
 					) : null
 				}
 
