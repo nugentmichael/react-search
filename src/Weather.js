@@ -65,19 +65,83 @@ const Weather = () => {
 		<div>
 			<h2>Weather</h2>
 			<div>
-				<h3>
-					<strong>{weather.name}</strong>
-				</h3>
-				<p>{weather.main}</p>
-				<p>{weather.icon}</p>
-				<p>Tempearture: {weather.temp} &deg;C</p>
-				<p>Tempearture (Min): {weather.temp_min} &deg;C</p>
-				<p>Tempearture (Max): {weather.temp_max} &deg;C</p>
-				<p>Tempearture (Feels Like): {weather.feels_like} &deg;C</p>
-				<p>Humidity: {weather.humidity}</p>
-				<p>Pressure: {weather.pressure}</p>
-				<p>Wind Temperature: {weather.wind_deg} &deg;C</p>
-				<p>Wind Speed: {weather.wind_speed} km/h</p>
+				{
+					// City Name
+					weather.name ? (
+						<h3>
+							<strong>{weather.name}</strong>
+						</h3>
+					) : null
+				}
+
+				{
+					// Main Conditions
+					weather.main ? <p>{weather.main}</p> : null
+				}
+
+				{
+					// Icon
+					weather.icon ? <p>{weather.icon}</p> : null
+				}
+
+				{
+					// Temperature
+					weather.temp ? (
+						<p>Tempearture: {weather.temp} &deg;C</p>
+					) : null
+				}
+
+				{
+					// Minimum Temperature
+					weather.temp_min ? (
+						<p>Tempearture (Min): {weather.temp_min} &deg;C</p>
+					) : null
+				}
+
+				{
+					// Maximum Temperature
+					weather.temp_max ? (
+						<p>Tempearture (Max): {weather.temp_max} &deg;C</p>
+					) : null
+				}
+
+				{
+					// Feels Like
+					weather.feels_like ? (
+						<p>
+							Tempearture (Feels Like): {weather.feels_like}{' '}
+							&deg;C
+						</p>
+					) : null
+				}
+
+				{
+					// Humidity
+					weather.humidity ? (
+						<p>Humidity: {weather.humidity}</p>
+					) : null
+				}
+
+				{
+					// Air Pressure
+					weather.pressure ? (
+						<p>Pressure: {weather.pressure}</p>
+					) : null
+				}
+
+				{
+					// Wind Direction
+					weather.wind_deg ? (
+						<p>Wind Direction: {weather.wind_deg} &deg;C</p>
+					) : null
+				}
+
+				{
+					// Wind Speed
+					weather.wind_speed ? (
+						<p>Wind Speed: {weather.wind_speed} km/h</p>
+					) : null
+				}
 			</div>
 		</div>
 	);
