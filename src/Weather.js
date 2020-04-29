@@ -81,7 +81,12 @@ const Weather = () => {
 
 				{
 					// Icon
-					weather.icon ? <p>{weather.icon}</p> : null
+					weather.icon ? (
+						<img
+							src={`//openweathermap.org/img/w/${weather.icon}.png`}
+							alt={weather.main ? weather.main : 'Weather Icon'}
+						/>
+					) : null
 				}
 
 				{
