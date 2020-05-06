@@ -1,4 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Card, {
+	CardPrimaryContent,
+	CardMedia,
+	CardActions,
+	CardActionButtons,
+	CardActionIcons,
+} from '@material/react-card';
 import keys from './keys';
 
 const Weather = () => {
@@ -64,109 +71,122 @@ const Weather = () => {
 	return (
 		<div>
 			<h2>Weather</h2>
-			<div>
-				{
-					// City Name
-					weather.name ? (
-						<h3>
-							<strong>{weather.name}</strong>
-						</h3>
-					) : null
-				}
 
-				{
-					// Main Conditions
-					weather.main ? <p>{weather.main}</p> : null
-				}
+			<Card>
+				<CardPrimaryContent>
+					{
+						// Icon
+						weather.icon ? (
+							<CardMedia
+								square
+								wide
+								imageUrl={`//openweathermap.org/img/w/${weather.icon}.png`}
+								alt={
+									weather.main ? weather.main : 'Weather Icon'
+								}
+							></CardMedia>
+						) : null
+					}
+				</CardPrimaryContent>
 
-				{
-					// Icon
-					weather.icon ? (
-						<img
-							src={`//openweathermap.org/img/w/${weather.icon}.png`}
-							alt={weather.main ? weather.main : 'Weather Icon'}
-						/>
-					) : null
-				}
+				<div>
+					{
+						// City Name
+						weather.name ? (
+							<h3>
+								<strong>{weather.name}</strong>
+							</h3>
+						) : null
+					}
 
-				{
-					// Temperature
-					weather.temp ? (
-						<p>
-							<strong>Tempearture:</strong> {weather.temp}&deg;C
-						</p>
-					) : null
-				}
+					{
+						// Main Conditions
+						weather.main ? <p>{weather.main}</p> : null
+					}
 
-				{
-					// Minimum Temperature
-					weather.temp_min ? (
-						<p>
-							<strong>Tempearture (Min):</strong>{' '}
-							{weather.temp_min}&deg;C
-						</p>
-					) : null
-				}
+					{
+						// Temperature
+						weather.temp ? (
+							<p>
+								<strong>Tempearture:</strong> {weather.temp}
+								&deg;C
+							</p>
+						) : null
+					}
 
-				{
-					// Maximum Temperature
-					weather.temp_max ? (
-						<p>
-							<strong>Tempearture (Max):</strong>{' '}
-							{weather.temp_max}&deg;C
-						</p>
-					) : null
-				}
+					{
+						// Minimum Temperature
+						weather.temp_min ? (
+							<p>
+								<strong>Tempearture (Min):</strong>{' '}
+								{weather.temp_min}&deg;C
+							</p>
+						) : null
+					}
 
-				{
-					// Feels Like
-					weather.feels_like ? (
-						<p>
-							<strong>Tempearture (Feels Like):</strong>{' '}
-							{weather.feels_like}&deg;C
-						</p>
-					) : null
-				}
+					{
+						// Maximum Temperature
+						weather.temp_max ? (
+							<p>
+								<strong>Tempearture (Max):</strong>{' '}
+								{weather.temp_max}&deg;C
+							</p>
+						) : null
+					}
 
-				{
-					// Humidity
-					weather.humidity ? (
-						<p>
-							<strong>Humidity:</strong> {weather.humidity}&#37;
-						</p>
-					) : null
-				}
+					{
+						// Feels Like
+						weather.feels_like ? (
+							<p>
+								<strong>Tempearture (Feels Like):</strong>{' '}
+								{weather.feels_like}&deg;C
+							</p>
+						) : null
+					}
 
-				{
-					// Atmospheric Pressure
-					weather.pressure ? (
-						<p>
-							<strong>Atmospheric Pressure:</strong>{' '}
-							{weather.pressure} hPa
-						</p>
-					) : null
-				}
+					{
+						// Humidity
+						weather.humidity ? (
+							<p>
+								<strong>Humidity:</strong> {weather.humidity}
+								&#37;
+							</p>
+						) : null
+					}
 
-				{
-					// Wind Direction
-					weather.wind_deg ? (
-						<p>
-							<strong>Wind Direction:</strong> {weather.wind_deg}
-							&deg;
-						</p>
-					) : null
-				}
+					{
+						// Atmospheric Pressure
+						weather.pressure ? (
+							<p>
+								<strong>Atmospheric Pressure:</strong>{' '}
+								{weather.pressure} hPa
+							</p>
+						) : null
+					}
 
-				{
-					// Wind Speed
-					weather.wind_speed ? (
-						<p>
-							<strong>Wind Speed:</strong> {weather.wind_speed}
-							km/h
-						</p>
-					) : null
-				}
-			</div>
+					{
+						// Wind Direction
+						weather.wind_deg ? (
+							<p>
+								<strong>Wind Direction:</strong>{' '}
+								{weather.wind_deg}
+								&deg;
+							</p>
+						) : null
+					}
+
+					{
+						// Wind Speed
+						weather.wind_speed ? (
+							<p>
+								<strong>Wind Speed:</strong>{' '}
+								{weather.wind_speed}
+								km/h
+							</p>
+						) : null
+					}
+				</div>
+			</Card>
 		</div>
 	);
 };
