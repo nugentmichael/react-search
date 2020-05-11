@@ -32,7 +32,6 @@ const Nav = () => {
 			initialLoad.current = false;
 			return;
 		}
-		toggleMenu();
 	}, []);
 
 	const MenuHeader = {
