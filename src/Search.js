@@ -64,7 +64,7 @@ const Search = () => {
 
 	return (
 		<div>
-			<h2>Search</h2>
+			<h2 className="heading">Search</h2>
 			{searchForm()}
 			{results && results.length > 0 ? (
 				<div className="search-results">

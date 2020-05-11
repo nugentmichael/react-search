@@ -69,27 +69,11 @@ const Weather = () => {
 	}, []);
 
 	return (
-		<div>
-			<h2>Weather</h2>
+		<div className="weather">
+			<h2 className="heading">Weather</h2>
 
-			<Card>
-				<CardPrimaryContent>
-					{
-						// Icon
-						weather.icon ? (
-							<CardMedia
-								square
-								wide
-								imageUrl={`//openweathermap.org/img/w/${weather.icon}.png`}
-								alt={
-									weather.main ? weather.main : 'Weather Icon'
-								}
-							></CardMedia>
-						) : null
-					}
-				</CardPrimaryContent>
-
-				<div>
+			<Card className="weather-card">
+				<CardPrimaryContent className="weather-card-primary-content">
 					{
 						// City Name
 						weather.name ? (
@@ -100,10 +84,25 @@ const Weather = () => {
 					}
 
 					{
+						// Icon
+						weather.icon ? (
+							<CardMedia
+								className="weather-icon"
+								imageUrl={`//openweathermap.org/img/w/${weather.icon}.png`}
+								alt={
+									weather.main ? weather.main : 'Weather Icon'
+								}
+							></CardMedia>
+						) : null
+					}
+
+					{
 						// Main Conditions
 						weather.main ? <p>{weather.main}</p> : null
 					}
+				</CardPrimaryContent>
 
+				<div className="weather-card-content">
 					{
 						// Temperature
 						weather.temp ? (
