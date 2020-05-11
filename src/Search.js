@@ -38,15 +38,14 @@ const Search = () => {
 		);
 	};
 
-	const fetchSearch = () => {
-		fetch(url)
-			.then((results) => results.json())
-			.then((data) => setResults(data.items))
-			.catch((error) => console.log(error));
-	};
-
 	useEffect(() => {
 		if (url) {
+			const fetchSearch = () => {
+				fetch(url)
+					.then((results) => results.json())
+					.then((data) => setResults(data.items))
+					.catch((error) => console.log(error));
+			};
 			fetchSearch();
 		}
 	}, [url]);
