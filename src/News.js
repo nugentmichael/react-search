@@ -35,15 +35,15 @@ const Search = () => {
 		setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
 	};
 
-	const fetchSearch = () => {
-		fetch(url)
-			.then((results) => results.json())
-			.then((data) => setResults(data.hits))
-			.catch((error) => console.log(error));
-	};
-
 	useEffect(() => {
 		if (url) {
+			const fetchSearch = () => {
+				fetch(url)
+					.then((results) => results.json())
+					.then((data) => setResults(data.hits))
+					.catch((error) => console.log(error));
+			};
+
 			fetchSearch();
 		}
 	}, [url]);
