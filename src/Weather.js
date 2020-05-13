@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LinearProgress from '@material/react-linear-progress';
 import Card, { CardPrimaryContent, CardMedia } from '@material/react-card';
 import keys from './keys';
 
@@ -61,120 +62,130 @@ const Weather = () => {
 		<div className="weather">
 			<h2 className="heading">Weather</h2>
 
-			<Card className="weather-card">
-				<CardPrimaryContent className="weather-card-primary-content">
-					{
-						// City Name
-						weather.name ? (
-							<h3>
-								<strong>{weather.name}</strong>
-							</h3>
-						) : null
-					}
+			{weather.name ? (
+				<Card className="weather-card">
+					<CardPrimaryContent className="weather-card-primary-content">
+						{
+							// City Name
+							weather.name ? (
+								<h3>
+									<strong>{weather.name}</strong>
+								</h3>
+							) : null
+						}
 
-					{
-						// Icon
-						weather.icon ? (
-							<CardMedia
-								className="weather-icon"
-								imageUrl={`//openweathermap.org/img/w/${weather.icon}.png`}
-								alt={
-									weather.main ? weather.main : 'Weather Icon'
-								}
-							></CardMedia>
-						) : null
-					}
+						{
+							// Icon
+							weather.icon ? (
+								<CardMedia
+									className="weather-icon"
+									imageUrl={`//openweathermap.org/img/w/${weather.icon}.png`}
+									alt={
+										weather.main
+											? weather.main
+											: 'Weather Icon'
+									}
+								></CardMedia>
+							) : null
+						}
 
-					{
-						// Main Conditions
-						weather.main ? <p>{weather.main}</p> : null
-					}
-				</CardPrimaryContent>
+						{
+							// Main Conditions
+							weather.main ? <p>{weather.main}</p> : null
+						}
+					</CardPrimaryContent>
 
-				<div className="weather-card-content">
-					{
-						// Temperature
-						weather.temp ? (
-							<p>
-								<strong>Tempearture:</strong> {weather.temp}
-								&deg;C
-							</p>
-						) : null
-					}
+					<div className="weather-card-content">
+						{
+							// Temperature
+							weather.temp ? (
+								<p>
+									<strong>Tempearture:</strong> {weather.temp}
+									&deg;C
+								</p>
+							) : null
+						}
 
-					{
-						// Minimum Temperature
-						weather.temp_min ? (
-							<p>
-								<strong>Tempearture (Min):</strong>{' '}
-								{weather.temp_min}&deg;C
-							</p>
-						) : null
-					}
+						{
+							// Minimum Temperature
+							weather.temp_min ? (
+								<p>
+									<strong>Tempearture (Min):</strong>{' '}
+									{weather.temp_min}&deg;C
+								</p>
+							) : null
+						}
 
-					{
-						// Maximum Temperature
-						weather.temp_max ? (
-							<p>
-								<strong>Tempearture (Max):</strong>{' '}
-								{weather.temp_max}&deg;C
-							</p>
-						) : null
-					}
+						{
+							// Maximum Temperature
+							weather.temp_max ? (
+								<p>
+									<strong>Tempearture (Max):</strong>{' '}
+									{weather.temp_max}&deg;C
+								</p>
+							) : null
+						}
 
-					{
-						// Feels Like
-						weather.feels_like ? (
-							<p>
-								<strong>Tempearture (Feels Like):</strong>{' '}
-								{weather.feels_like}&deg;C
-							</p>
-						) : null
-					}
+						{
+							// Feels Like
+							weather.feels_like ? (
+								<p>
+									<strong>Tempearture (Feels Like):</strong>{' '}
+									{weather.feels_like}&deg;C
+								</p>
+							) : null
+						}
 
-					{
-						// Humidity
-						weather.humidity ? (
-							<p>
-								<strong>Humidity:</strong> {weather.humidity}
-								&#37;
-							</p>
-						) : null
-					}
+						{
+							// Humidity
+							weather.humidity ? (
+								<p>
+									<strong>Humidity:</strong>{' '}
+									{weather.humidity}
+									&#37;
+								</p>
+							) : null
+						}
 
-					{
-						// Atmospheric Pressure
-						weather.pressure ? (
-							<p>
-								<strong>Atmospheric Pressure:</strong>{' '}
-								{weather.pressure} hPa
-							</p>
-						) : null
-					}
+						{
+							// Atmospheric Pressure
+							weather.pressure ? (
+								<p>
+									<strong>Atmospheric Pressure:</strong>{' '}
+									{weather.pressure} hPa
+								</p>
+							) : null
+						}
 
-					{
-						// Wind Direction
-						weather.wind_deg ? (
-							<p>
-								<strong>Wind Direction:</strong>{' '}
-								{weather.wind_deg}
-								&deg;
-							</p>
-						) : null
-					}
+						{
+							// Wind Direction
+							weather.wind_deg ? (
+								<p>
+									<strong>Wind Direction:</strong>{' '}
+									{weather.wind_deg}
+									&deg;
+								</p>
+							) : null
+						}
 
-					{
-						// Wind Speed
-						weather.wind_speed ? (
-							<p>
-								<strong>Wind Speed:</strong>{' '}
-								{weather.wind_speed}
-								km/h
-							</p>
-						) : null
-					}
-				</div>
-			</Card>
+						{
+							// Wind Speed
+							weather.wind_speed ? (
+								<p>
+									<strong>Wind Speed:</strong>{' '}
+									{weather.wind_speed}
+									km/h
+								</p>
+							) : null
+						}
+					</div>
+				</Card>
+			) : (
+				<LinearProgress
+					indeterminate="true"
+					closed={weather.name ? 'true' : 'false'}
+				/>
+			)}
 		</div>
 	);
 };
