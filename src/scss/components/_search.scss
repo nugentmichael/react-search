@@ -1,6 +1,15 @@
 @import '@material/react-text-field/index.scss';
 @import '@material/react-button/index.scss';
 
+.search-container {
+	width: 400px;
+	transition: width 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+
+	&.span-width {
+		width: 70vw;
+	}
+}
+
 h2 {
 	font-size: 1.5rem;
 }
@@ -22,8 +31,7 @@ h2 {
 		margin: 30px 0;
 
 		.result-link {
-			margin-bottom: 5px;
-			color: grey;
+			color: #616161;
 		}
 
 		.result-snippet {

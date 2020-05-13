@@ -52,14 +52,19 @@ const Search = () => {
 		results.map((result, index) => (
 			<li key={index}>
 				<a href={result.url}>
-					<h3>{result.title}</h3>
+					<h5>{result.title}</h5>
 				</a>
 				<p>{result.story_text}</p>
 			</li>
 		));
 
 	return (
-		<div>
+		<div
+			className={
+				'search-container ' +
+				(results && results.length > 0 ? 'span-width' : '')
+			}
+		>
 			<h2 className="heading">News Search</h2>
 			{searchForm()}
 			{results && results.length > 0 ? (

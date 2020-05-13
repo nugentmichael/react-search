@@ -55,14 +55,19 @@ const Search = () => {
 			<li key={index}>
 				<p className="result-link">{result.displayLink}</p>
 				<a href={result.formattedUrl}>
-					<h3>{result.title}</h3>
+					<h5>{result.title}</h5>
 				</a>
 				<p className="result-snippet">{result.snippet}</p>
 			</li>
 		));
 
 	return (
-		<div>
+		<div
+			className={
+				'search-container ' +
+				(results && results.length > 0 ? 'span-width' : '')
+			}
+		>
 			<h2 className="heading">Search</h2>
 			{searchForm()}
 			{results && results.length > 0 ? (
