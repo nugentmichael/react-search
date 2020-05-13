@@ -76,12 +76,14 @@ const Search = () => {
 					<ul>{displayResults()}</ul>
 				</div>
 			) : (
-				<p>
-					Welcome. Stay hydrated!
-					<span role="img" aria-label="Sunshine">
-						☀️
-					</span>
-				</p>
+				<div className="search-footer">
+					<p>
+						Welcome. Stay hydrated!&nbsp;
+						<span role="img" aria-label="Sunshine">
+							☀️
+						</span>
+					</p>
+				</div>
 			)}
 		</div>
 	);

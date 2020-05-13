@@ -32,7 +32,10 @@ const Search = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
+
+		if (searchQuery !== '') {
+			setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
+		}
 	};
 
 	useEffect(() => {
@@ -73,7 +76,14 @@ const Search = () => {
 					<ul>{displayResults()}</ul>
 				</div>
 			) : (
-				<p>Let's see what's in the news today...</p>
+				<div className="search-footer">
+					<p>
+						Let's see what's in the news today...&nbsp;
+						<span role="img" aria-label="Thinking">
+							🤔
+						</span>
+					</p>
+				</div>
 			)}
 		</div>
 	);

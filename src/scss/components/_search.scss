@@ -8,34 +8,38 @@
 	&.span-width {
 		width: 70vw;
 	}
-}
 
-h2 {
-	font-size: 1.5rem;
-}
-
-.search-form {
-	.mdc-text-field {
-		margin: 20px auto;
-		width: 100%;
+	h2 {
+		font-size: 1.5rem;
 	}
 
-	button {
-		display: block;
-		margin: 10px auto 50px;
+	.search-form {
+		.mdc-text-field {
+			margin: 20px auto;
+			width: 100%;
+		}
+
+		button {
+			display: block;
+			margin: 10px auto 50px;
+		}
 	}
-}
 
-.search-results {
-	ul li {
-		margin: 30px 0;
+	.search-results {
+		ul li {
+			margin: 30px 0;
 
-		.result-link {
-			color: #616161;
+			.result-link {
+				color: #616161;
+			}
+
+			.result-snippet {
+				margin: 5px 0;
+			}
 		}
+	}
 
-		.result-snippet {
-			margin: 5px 0;
-		}
+	.search-footer {
+		text-align: center;
 	}
 }
