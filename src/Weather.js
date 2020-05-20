@@ -96,88 +96,103 @@ const Weather = () => {
 					</CardPrimaryContent>
 
 					<div className="weather-card-content">
-						{
-							// Temperature
-							weather.temp ? (
-								<p>
-									<strong>Tempearture:</strong> {weather.temp}
-									&deg;C
-								</p>
-							) : null
-						}
+						<table>
+							<thead>
+								<tr>
+									<th>
+										<strong>Current Conditions:</strong>
+									</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									// Temperature
+									weather.temp ? (
+										<tr>
+											<td>Tempearture:</td>
+											<td>
+												{weather.temp}
+												&deg;C
+											</td>
+										</tr>
+									) : null
+								}
 
-						{
-							// Minimum Temperature
-							weather.temp_min ? (
-								<p>
-									<strong>Tempearture (Min):</strong>{' '}
-									{weather.temp_min}&deg;C
-								</p>
-							) : null
-						}
+								{
+									// Minimum Temperature
+									weather.temp_min ? (
+										<tr>
+											<td>Tempearture (Min):</td>
+											<td>{weather.temp_min}&deg;C</td>
+										</tr>
+									) : null
+								}
 
-						{
-							// Maximum Temperature
-							weather.temp_max ? (
-								<p>
-									<strong>Tempearture (Max):</strong>{' '}
-									{weather.temp_max}&deg;C
-								</p>
-							) : null
-						}
+								{
+									// Maximum Temperature
+									weather.temp_max ? (
+										<tr>
+											<td>Tempearture (Max):</td>
+											<td>{weather.temp_max}&deg;C</td>
+										</tr>
+									) : null
+								}
 
-						{
-							// Feels Like
-							weather.feels_like ? (
-								<p>
-									<strong>Tempearture (Feels Like):</strong>{' '}
-									{weather.feels_like}&deg;C
-								</p>
-							) : null
-						}
+								{
+									// Feels Like
+									weather.feels_like ? (
+										<tr>
+											<td>Tempearture (Feels Like):</td>
+											<td>{weather.feels_like}&deg;C</td>
+										</tr>
+									) : null
+								}
 
-						{
-							// Humidity
-							weather.humidity ? (
-								<p>
-									<strong>Humidity:</strong>{' '}
-									{weather.humidity}
-									&#37;
-								</p>
-							) : null
-						}
+								{
+									// Humidity
+									weather.humidity ? (
+										<tr>
+											<td>Humidity:</td>
+											<td>{weather.humidity}</td>
+										</tr>
+									) : null
+								}
 
-						{
-							// Atmospheric Pressure
-							weather.pressure ? (
-								<p>
-									<strong>Atmospheric Pressure:</strong>{' '}
-									{weather.pressure} hPa
-								</p>
-							) : null
-						}
+								{
+									// Atmospheric Pressure
+									weather.pressure ? (
+										<tr>
+											<td>Atmospheric Pressure:</td>
+											<td>{weather.pressure} hPa</td>
+										</tr>
+									) : null
+								}
 
-						{
-							// Wind Direction
-							weather.wind_deg ? (
-								<p>
-									<strong>Wind Direction:</strong>{' '}
-									{weather.wind_deg}
-									&deg;
-								</p>
-							) : null
-						}
+								{
+									// Wind Direction
+									weather.wind_deg ? (
+										<tr>
+											<td>Wind Direction:</td>
+											<td>{weather.wind_deg}&deg;</td>
+										</tr>
+									) : null
+								}
 
-						{
-							// Wind Speed
-							weather.wind_speed ? (
-								<p>
-									<strong>Wind Speed:</strong>{' '}
-									{weather.wind_speed}
-									km/h
-								</p>
-							) : null
-						}
+								{
+									// Wind Speed
+									weather.wind_speed ? (
+										<tr>
+											<td>Wind Speed:</td>
+											<td>
+												{weather.wind_speed}
+												km/h
+											</td>
+										</tr>
+									) : null
+								}
+							</tbody>
+						</table>
 					</div>
 				</Card>
 			) : (
