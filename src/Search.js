@@ -54,7 +54,11 @@ const Search = () => {
 		results.map((result, index) => (
 			<li key={index}>
 				<p className="result-link">{result.displayLink}</p>
-				<a href={result.formattedUrl}>
+				<a
+					href={result.formattedUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<h5>{result.title}</h5>
 				</a>
 				<p className="result-snippet">{result.snippet}</p>

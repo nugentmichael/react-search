@@ -54,7 +54,7 @@ const Search = () => {
 	const displayResults = () =>
 		results.map((result, index) => (
 			<li key={index}>
-				<a href={result.url}>
+				<a href={result.url} target="_blank" rel="noopener noreferrer">
 					<h5>{result.title}</h5>
 				</a>
 				<p>{result.story_text}</p>
