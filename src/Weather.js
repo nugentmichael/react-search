@@ -4,6 +4,7 @@ import Card, { CardPrimaryContent, CardMedia } from '@material/react-card';
 import keys from './keys';
 
 const Weather = () => {
+	// eslint-disable-next-line no-unused-vars
 	const [latLng, setLatLng] = useState([]);
 	const [weather, setWeather] = useState({
 		name: '',
