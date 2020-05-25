@@ -2,11 +2,12 @@
 @import '@material/react-button/index.scss';
 
 .search-container {
-	width: 400px;
+	margin: auto;
+	width: 40vw;
 	transition: width 0.6s cubic-bezier(0.85, 0, 0.15, 1);
 
 	&.span-width {
-		width: 70vw;
+		width: 80vw;
 	}
 
 	.search-form {
@@ -37,5 +38,16 @@
 
 	.search-footer {
 		text-align: center;
+	}
+}
+
+@media all and (max-width: 767px) {
+	.search-container {
+		width: 100%;
+		transition: none;
+
+		&.span-width {
+			width: 90%;
+		}
 	}
 }
