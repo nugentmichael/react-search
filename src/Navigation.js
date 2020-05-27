@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
 	const [open, setOpen] = useState(false);
 	const initialLoad = useRef(true);
+	const state = { selectedIndex: 0 };
 
 	const toggleMenu = () => {
 		open === false ? setOpen(true) : setOpen(false);
@@ -54,7 +55,7 @@ const Nav = () => {
 				</DrawerHeader>
 
 				<DrawerContent>
-					<List>
+					<List singleSelection selectedIndex={state.selectedIndex}>
 						<ListItem onClick={() => toggleMenu()}>
 							<Link to="/search">
 								<ListItemGraphic
