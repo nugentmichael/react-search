@@ -46,12 +46,14 @@ const Nav = () => {
 			<Drawer modal open={open} onClose={() => setOpen(false)}>
 				<DrawerHeader style={MenuHeader}>
 					<DrawerTitle tag="h2">Menu</DrawerTitle>
-					<MaterialIcon
-						hasRipple
-						icon="close"
-						aria-label="Close Menu"
-						onClick={() => toggleMenu()}
-					/>
+					<button>
+						<MaterialIcon
+							hasRipple
+							icon="close"
+							aria-label="Close Menu"
+							onClick={() => toggleMenu()}
+						/>
+					</button>
 				</DrawerHeader>
 
 				<DrawerContent>
