@@ -1,5 +1,9 @@
 @import '@material/react-linear-progress/index.scss';
 
+:root {
+	--mdc-theme-primary: #212121;
+}
+
 #root > div {
 	display: grid;
 	grid-template-columns: 1fr;
