@@ -44,9 +44,15 @@ const Weather = () => {
 	};
 
 	useEffect(() => {
-		const fetchLatLng = () => {
+		fetch('https://ipapi.co/json/')
+			.then((response) => response.json())
+			.then((data) => {
+				fetchLatLng(data.ip);
+			});
+
+		const fetchLatLng = (ip) => {
 			fetch(
-				`http://api.ipstack.com/108.162.130.190?access_key=${keys.ipstack}&format=1`
+				`http://api.ipstack.com/${ip}?access_key=${keys.ipstack}&format=1`
 			)
 				.then((result) => result.json())
 				.then((data) => {
@@ -55,8 +61,6 @@ const Weather = () => {
 				})
 				.catch((error) => console.log(error));
 		};
-
-		fetchLatLng();
 	}, []);
 
 	return (
