@@ -2,6 +2,7 @@
 	"name": "react-search",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://www.nugentic.com/roogle",
 	"dependencies": {
 		"@material/react-button": "^0.15.0",
 		"@material/react-card": "^0.15.0",
