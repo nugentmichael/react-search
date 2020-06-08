@@ -21,14 +21,18 @@ function App() {
 					<Nav />
 					<Header />
 					<Switch>
-						<Redirect exact from="/" to="/search" />
-						<Route path="/search">
+						<Redirect
+							exact
+							from="/roogle"
+							to={`${process.env.PUBLIC_URL}/search`}
+						/>
+						<Route path={`${process.env.PUBLIC_URL}/search`}>
 							<Search />
 						</Route>
-						<Route path="/news">
+						<Route path={`${process.env.PUBLIC_URL}/news`}>
 							<News />
 						</Route>
-						<Route path="/weather">
+						<Route path={`${process.env.PUBLIC_URL}/weather`}>
 							<Weather />
 						</Route>
 					</Switch>
