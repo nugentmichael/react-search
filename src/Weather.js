@@ -51,9 +51,7 @@ const Weather = () => {
 			});
 
 		const fetchLatLng = (ip) => {
-			fetch(
-				`http://api.ipstack.com/${ip}?access_key=${keys.ipstack}&format=1`
-			)
+			fetch(`//api.ipstack.com/${ip}?access_key=${keys.ipstack}&format=1`)
 				.then((result) => result.json())
 				.then((data) => {
 					setLatLng(data);
