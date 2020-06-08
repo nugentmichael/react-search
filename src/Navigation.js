@@ -59,7 +59,7 @@ const Nav = () => {
 				<DrawerContent>
 					<List singleSelection selectedIndex={state.selectedIndex}>
 						<ListItem onClick={() => toggleMenu()}>
-							<Link to="/search">
+							<Link to={`${process.env.PUBLIC_URL}/search`}>
 								<ListItemGraphic
 									graphic={<MaterialIcon icon="search" />}
 								/>
@@ -67,7 +67,7 @@ const Nav = () => {
 							</Link>
 						</ListItem>
 						<ListItem onClick={() => toggleMenu()}>
-							<Link to="/news">
+							<Link to={`${process.env.PUBLIC_URL}/news`}>
 								<ListItemGraphic
 									graphic={<MaterialIcon icon="language" />}
 								/>
@@ -75,7 +75,7 @@ const Nav = () => {
 							</Link>
 						</ListItem>
 						<ListItem onClick={() => toggleMenu()}>
-							<Link to="/weather">
+							<Link to={`${process.env.PUBLIC_URL}/weather`}>
 								<ListItemGraphic
 									graphic={<MaterialIcon icon="wb_sunny" />}
 								/>
