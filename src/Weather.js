@@ -22,7 +22,7 @@ const Weather = () => {
 
 	const fetchWeather = (coords) => {
 		fetch(
-			`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=metric&appid=${keys.weather}`
+			`//api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=metric&appid=${keys.weather}`
 		)
 			.then((result) => result.json())
 			.then((data) =>
@@ -44,21 +44,13 @@ const Weather = () => {
 	};
 
 	useEffect(() => {
-		fetch('https://ipapi.co/json/')
+		fetch('//ipapi.co/json/')
 			.then((response) => response.json())
 			.then((data) => {
-				fetchLatLng(data.ip);
-			});
-
-		const fetchLatLng = (ip) => {
-			fetch(`//api.ipstack.com/${ip}?access_key=${keys.ipstack}&format=1`)
-				.then((result) => result.json())
-				.then((data) => {
-					setLatLng(data);
-					fetchWeather(data);
-				})
-				.catch((error) => console.log(error));
-		};
+				setLatLng(data);
+				fetchWeather(data);
+			})
+			.catch((error) => console.log(error));
 	}, []);
 
 	return (
