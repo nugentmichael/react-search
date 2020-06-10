@@ -97,7 +97,7 @@ const Nav = () => {
 									onClick={() => toggleMenu()}
 								/>
 							</TopAppBarIcon>
-							<Link to="/search">
+							<Link to={`${process.env.PUBLIC_URL}/search`}>
 								<TopAppBarTitle>Roogle</TopAppBarTitle>
 							</Link>
 						</TopAppBarSection>
