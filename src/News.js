@@ -34,7 +34,7 @@ const Search = () => {
 		e.preventDefault();
 
 		if (searchQuery !== '') {
-			setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
+			setUrl(`//hn.algolia.com/api/v1/search?query=${searchQuery}`);
 		}
 	};
 
