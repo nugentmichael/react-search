@@ -34,7 +34,7 @@ const Search = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setUrl(
-			`https://www.googleapis.com/customsearch/v1?key=${keys.google}&cx=partner-pub-7786488079830346:vnol26-ct61&q=${searchQuery}`
+			`//www.googleapis.com/customsearch/v1?key=${keys.google}&cx=partner-pub-7786488079830346:vnol26-ct61&q=${searchQuery}`
 		);
 	};
 
