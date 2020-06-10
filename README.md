@@ -10,7 +10,7 @@ This web application utlizes a few external APIs in order to run correctly:
 
 -   Google Custom Search Console
 -   Algolia
--   IPStack
+-   IPAPI.co
 -   OpenWeatherMap
 
 You will need to obtain your own API keys and store them within a `keys.js` file that you will reference in your import statements.
