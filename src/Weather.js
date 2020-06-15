@@ -105,7 +105,7 @@ const Weather = () => {
 									// Temperature
 									weather.temp ? (
 										<tr>
-											<td>Tempearture:</td>
+											<td>Temperature:</td>
 											<td>
 												{weather.temp}
 												&deg;C
@@ -118,7 +118,7 @@ const Weather = () => {
 									// Minimum Temperature
 									weather.temp_min ? (
 										<tr>
-											<td>Tempearture (Min):</td>
+											<td>Temperature (Min):</td>
 											<td>{weather.temp_min}&deg;C</td>
 										</tr>
 									) : null
@@ -128,7 +128,7 @@ const Weather = () => {
 									// Maximum Temperature
 									weather.temp_max ? (
 										<tr>
-											<td>Tempearture (Max):</td>
+											<td>Temperature (Max):</td>
 											<td>{weather.temp_max}&deg;C</td>
 										</tr>
 									) : null
@@ -138,7 +138,7 @@ const Weather = () => {
 									// Feels Like
 									weather.feels_like ? (
 										<tr>
-											<td>Tempearture (Feels Like):</td>
+											<td>Temperature (Feels Like):</td>
 											<td>{weather.feels_like}&deg;C</td>
 										</tr>
 									) : null
