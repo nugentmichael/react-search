@@ -40,14 +40,10 @@ const Search = () => {
 
 	useEffect(() => {
 		if (url) {
-			const fetchSearch = () => {
-				fetch(url)
-					.then((results) => results.json())
-					.then((data) => setResults(data.hits))
-					.catch((error) => console.log(error));
-			};
-
-			fetchSearch();
+			fetch(url)
+				.then((results) => results.json())
+				.then((data) => setResults(data.hits))
+				.catch((error) => console.log(error));
 		}
 	}, [url]);
 
